@@ -6,7 +6,7 @@
       <article>
         <h2 class="text-primary mb-3">{{ $post->title }}</h2>
         {!! $post->body !!}
-        <a href="/blog">back to posts</a>
+        <a href="/posts">back to posts</a>
       </article>
     </div>
   </div>
