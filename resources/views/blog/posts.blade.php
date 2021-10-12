@@ -5,12 +5,11 @@
     @foreach ($posts as $post)
       <div class="col-lg-6 mb-3">
         <h2>
-          <a href="/posts/{{ $post['slug'] }}" class="text-decoration-none">
-            {{ $post['title'] }}
+          <a href="/posts/{{ $post->id }}" class="text-decoration-none">
+            {{ $post->title }}
           </a>
         </h2>
-        <small>by: {{ $post['author'] }}</small>
-        <p>{{ $post['body'] }}</p>
+        <p>{{ $post->excerpt }}</p>
       </div>
     @endforeach
   </div>
