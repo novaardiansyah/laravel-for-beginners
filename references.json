@@ -1,24 +1,13 @@
 {
-  "related-information": {
-    "Youtube Channel": {
-      "title": "",
-      "url": ""
+    "related-information": {
+        "Youtube Channel": {
+            "title": "Web Programming UNPAS",
+            "url": "https://www.youtube.com/c/WebProgrammingUNPAS"
+        },
+        "Youtube Playlist": {
+            "title": "Belajar LARAVEL 8",
+            "url": "https://www.youtube.com/playlist?list=PLFIM0718LjIWiihbBIq-SWPU6b6x21Q_2"
+        }
     },
-    "Youtube Playlist": {
-      "title": "",
-      "url": ""
-    },
-    "Youtube Video": [
-      {
-        "title": "",
-        "url": ""
-      }
-    ]
-  },
-  "search-information": [
-    {
-      "title": "",
-      "url": ""
-    }  
-  ]
+    "search-information": []
 }
