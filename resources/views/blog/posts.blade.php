@@ -12,7 +12,7 @@
                 {{ $post->title }}
               </a>
             </h5>
-            <small class="d-block mb-3 text-capitalize">By. <a href="/"
+            <small class="d-block mb-3 text-capitalize">By. <a href="/authors/{{ $post->user->username }}"
                 class="text-decoration-none">{{ $post->user->name }}</a> in <a
                 href="/categories/{{ $post->category->slug }}"
                 class="text-decoration-none">{{ $post->category->name }}</a></small>

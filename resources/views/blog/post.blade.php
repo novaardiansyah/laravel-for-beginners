@@ -11,7 +11,7 @@
             class="text-decoration-none">{{ $post->category->name }}</a></small>
 
         {!! $post->body !!}
-        <a href="/posts" class="text-decoration-none">back to posts</a>
+        <a href="/posts" class="text-decoration-none d-block mt-3">back to posts</a>
       </article>
     </div>
   </div>

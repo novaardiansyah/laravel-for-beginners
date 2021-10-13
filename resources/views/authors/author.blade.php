@@ -3,10 +3,10 @@
 @section('container')
   <div class="row justify-content-center">
     <div class="col-lg-6 mb-3">
-      <h4 class="text-capitalize">List Category: {{ $category }}</h4>
+      <h4 class="text-capitalize">List Posts: {{ $author }}</h4>
       <ul class="list-group">
         @foreach ($posts as $post)
-          <li class="list-group-item">
+          <li class="list-group-item py-3 shadow-sm">
             <h5 class="mb-0">
               <a href="/posts/{{ $post->slug }}" class="text-decoration-none">
                 {{ $post->title }}
@@ -17,10 +17,15 @@
                 href="/categories/{{ $post->category->slug }}"
                 class="text-decoration-none">{{ $post->category->name }}</a></small>
 
-            <p>{{ $post->excerpt }}</p>
+            <p class="mb-0">{{ $post->excerpt }}</p>
+            <a href="/posts/{{ $post->slug }}" class="text-decoration-none">
+              Read More..
+            </a>
           </li>
         @endforeach
       </ul>
+
+      <a href="/posts" class="d-block mt-3 text-decoration-none">Back to Posts</a>
     </div>
   </div>
 @endsection
