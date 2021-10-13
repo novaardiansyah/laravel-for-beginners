@@ -3,7 +3,7 @@
 @section('container')
   <div class="row justify-content-center">
     <div class="col-lg-6 mb-3">
-      <h4 class="text-capitalize">List Posts:</h4>
+      <h4 class="text-capitalize">List Category: {{ $category }}</h4>
       <ul class="list-group">
         @foreach ($posts as $post)
           <li class="list-group-item">

@@ -3,16 +3,15 @@
 @section('container')
   <div class="row justify-content-center">
     <div class="col-lg-6 mb-3">
-      <h4 class="text-capitalize">List Posts:</h4>
+      <h4 class="text-capitalize">Post Categories:</h4>
       <ul class="list-group">
-        @foreach ($posts as $post)
+        @foreach ($categories as $category)
           <li class="list-group-item">
             <h5>
-              <a href="/posts/{{ $post->slug }}" class="text-decoration-none">
-                {{ $post->title }}
+              <a href="/categories/{{ $category->slug }}" class="text-decoration-none">
+                {{ $category->name }}
               </a>
             </h5>
-            <p>{{ $post->excerpt }}</p>
           </li>
         @endforeach
       </ul>
