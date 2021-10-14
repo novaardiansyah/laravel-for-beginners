@@ -14,7 +14,7 @@ You can contribute to this site by submitting pull request.
 
 ### Preview
 
-you can see the results of this repo through a <a href="#">live demo</a>,hopefully you like it.
+you can see the results of this repo through a <a href="#">live demo</a>, hopefully you like it.
 
 it may take longer to demonstrate the website the first time, please be patient and it will all show up soon.
 
