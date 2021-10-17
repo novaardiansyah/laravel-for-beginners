@@ -10,7 +10,6 @@
             href="/categories/{{ $post->category->slug }}"
             class="text-decoration-none">{{ $post->category->name }}</a></small>
 
-
         <img src="https://source.unsplash.com/1080x480?{{ $post->category->name }}" class="img-fluid"
           alt="{{ $post->category->name }}" />
 
