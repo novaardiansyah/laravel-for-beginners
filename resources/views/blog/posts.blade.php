@@ -1,20 +1,21 @@
 @extends('layouts.main')
 
 @section('container')
+  <div class="row justify-content-center">
+    <div class="col-md-8 mb-3">
+      <h4 class="text-capitalize text-center mb-3">{{ $title }}</h4>
+
+      <form action="/posts">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}">
+          <button class="btn btn-dark" type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   @if ($posts->count())
-    <div class="row justify-content-center">
-      <div class="col-md-8 mb-3">
-        <h4 class="text-capitalize text-center mb-3">{{ $title }}</h4>
-
-        <form action="/posts">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search.." name="search"
-              value="{{ request('search') }}">
-            <button class="btn btn-dark" type="submit">Search</button>
-          </div>
-        </form>
-      </div>
-
+    <div class="row">
       <div class="col-lg-8 mb-3">
         <div class="card mb-3">
           <img src="https://source.unsplash.com/1080x480?{{ $posts[0]->category->name }}" class="card-img-top"
@@ -40,7 +41,6 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       @foreach ($posts->skip(1) as $post)
         <div class="col-md-4 mb-3">
