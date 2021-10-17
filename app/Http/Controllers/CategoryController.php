@@ -19,8 +19,9 @@ class CategoryController extends Controller
   public function show(Category $category)
   {
     return view('blog.posts', [
-      "title" => "Posts By. Category: " . $category->name,
-      "posts" => $category->post->load('user', 'category')
+      "title"  => "Posts By. Category: " . $category->name,
+      "active" => "posts",
+      "posts"  => $category->post->load('user', 'category')
     ]);
   }
 }
