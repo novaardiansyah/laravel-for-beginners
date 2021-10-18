@@ -10,16 +10,18 @@ class PostController extends Controller
   public function index()
   {
     return view('blog.posts', [
-      "title" => "All Posts",
-      "posts" => Post::with(['user', 'category'])->latest()->get()
+      "title"  => "All Posts",
+      "active" => "posts",
+      "posts"  => Post::filter(request(['search']))->latest()->get()
     ]);
   }
 
   public function show(Post $post)
   {
     return view('blog.post', [
-      "title" => "Posts",
-      "post"  => $post
+      "title"  => "Posts",
+      "active" => "posts",
+      "post"   => $post
     ]);
   }
 }

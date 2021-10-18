@@ -18,15 +18,17 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
   return view('home', [
-    "title" => "Home"
+    "title"  => "Home",
+    "active" => "home"
   ]);
 });
 
 Route::get('/about', function () {
   return view('about', [
-    "title" => "About",
-    "name" => "Nova Ardiansyah",
-    "email" => "default@gmail.com",
+    "title"   => "About",
+    "active"  => "about",
+    "name"    => "Nova Ardiansyah",
+    "email"   => "default@gmail.com",
     "picture" => "default-profile.png"
   ]);
 });
