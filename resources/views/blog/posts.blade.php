@@ -9,6 +9,9 @@
         @if (request('category'))
           <input type="hidden" name="category" value="{{ request('category') }}" />
         @endif
+        @if (request('authors'))
+          <input type="hidden" name="authors" value="{{ request('authors') }}" />
+        @endif
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search.." name="search" autocomplete="off"
             value="{{ request('search') }}" />
@@ -30,7 +33,7 @@
               </a></h3>
 
             <small class="d-block mb-3 text-capitalize text-muted">By. <a
-                href="/authors/{{ $posts[0]->user->username }}"
+                href="/posts?authors={{ $posts[0]->user->username }}"
                 class="text-decoration-none">{{ $posts[0]->user->name }}</a> in <a
                 href="/posts?category={{ $posts[0]->category->slug }}"
                 class="text-decoration-none">{{ $posts[0]->category->name }}</a> <span
@@ -63,7 +66,7 @@
                 </a></h5>
 
               <small class="d-block mb-3 text-capitalize text-muted">By. <a
-                  href="/authors/{{ $posts[0]->user->username }}"
+                  href="/posts?authors={{ $posts[0]->user->username }}"
                   class="text-decoration-none">{{ $posts[0]->user->name }}</a> <span
                   class="text-lowercase">{{ $posts[0]->created_at->diffForHumans() }}</span></small>
 
