@@ -22,10 +22,11 @@ class Post extends Model
     return $this->belongsTo(User::class);
   }
 
-  public function scopeFilter($query)
+  public function scopeFilter($query, array $filters)
   {
-    if (request('search')) {
-      return $query->where('title', 'like', '%' . request('search') . '%')->orWhere('body', 'like', '%' . request('search') . '%');
-    }
+    // ! using when it belongs to laravel
+    $query->when($filters['search'] ?? false, function ($query, $search) {
+      return $query->where('title', 'like', '%' . $search . '%')->orWhere('body', 'like', '%' . $search . '%');
+    });
   }
 }
