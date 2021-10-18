@@ -12,7 +12,7 @@ class PostController extends Controller
     return view('blog.posts', [
       "title"  => "All Posts",
       "active" => "posts",
-      "posts"  => Post::filter(request(['search']))->latest()->get()
+      "posts"  => Post::filter(request(['search', 'category']))->latest()->get()
     ]);
   }
 

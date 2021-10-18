@@ -6,8 +6,12 @@
       <h4 class="text-capitalize text-center mb-3">{{ $title }}</h4>
 
       <form action="/posts">
+        @if (request('category'))
+          <input type="hidden" name="category" value="{{ request('category') }}" />
+        @endif
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}">
+          <input type="text" class="form-control" placeholder="Search.." name="search" autocomplete="off"
+            value="{{ request('search') }}" />
           <button class="btn btn-dark" type="submit">Search</button>
         </div>
       </form>
@@ -28,7 +32,7 @@
             <small class="d-block mb-3 text-capitalize text-muted">By. <a
                 href="/authors/{{ $posts[0]->user->username }}"
                 class="text-decoration-none">{{ $posts[0]->user->name }}</a> in <a
-                href="/categories/{{ $posts[0]->category->slug }}"
+                href="/posts?category={{ $posts[0]->category->slug }}"
                 class="text-decoration-none">{{ $posts[0]->category->name }}</a> <span
                 class="text-lowercase">{{ $posts[0]->created_at->diffForHumans() }}</span></small>
 
@@ -46,7 +50,7 @@
         <div class="col-md-4 mb-3">
           <div class="card">
             <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, .7)">
-              <a href="/categories/{{ $post->category->slug }}"
+              <a href="/posts?category={{ $post->category->slug }}"
                 class="text-white text-decoration-none">{{ $post->category->name }}</a>
             </div>
 
