@@ -22,14 +22,14 @@
   </div>
 
   @if ($posts->count())
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-lg-8 mb-3">
         <div class="card mb-3">
           <img src="https://source.unsplash.com/1080x480?{{ $posts[0]->category->name }}" class="card-img-top"
             alt="{{ $posts[0]->category->name }}">
           <div class="card-body text-center">
             <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">
-                {{ $posts[0]->title }}
+                {{ Str::substr($posts[0]->title, 0, 35) . '...' }}
               </a></h3>
 
             <small class="d-block mb-3 text-capitalize text-muted">By. <a
@@ -39,7 +39,7 @@
                 class="text-decoration-none">{{ $posts[0]->category->name }}</a> <span
                 class="text-lowercase">{{ $posts[0]->created_at->diffForHumans() }}</span></small>
 
-            <p class="card-text">{{ $posts[0]->excerpt }}</p>
+            <p class="card-text">{{ Str::substr($posts[0]->excerpt, 0, 250) . '...' }}</p>
 
             <a href="/posts/{{ $posts[0]->slug }}" class="btn btn-primary text-decoration-none">
               Read More
@@ -62,7 +62,7 @@
 
             <div class="card-body">
               <h5 class="card-title"><a href="/posts/{{ $post->slug }}" class="text-decoration-none">
-                  {{ $post->title }}
+                  {{ Str::substr($post->title, 0, 35) . '...' }}
                 </a></h5>
 
               <small class="d-block mb-3 text-capitalize text-muted">By. <a
@@ -70,7 +70,7 @@
                   class="text-decoration-none">{{ $posts[0]->user->name }}</a> <span
                   class="text-lowercase">{{ $posts[0]->created_at->diffForHumans() }}</span></small>
 
-              <p class="card-text">{{ $post->excerpt }}</p>
+              <p class="card-text">{{ Str::substr($post->excerpt, 0, 150) . '...' }}</p>
 
               <a href="/posts/{{ $post->slug }}" class="btn btn-primary text-decoration-none">Read More</a>
             </div>
