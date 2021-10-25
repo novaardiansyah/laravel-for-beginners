@@ -7,29 +7,12 @@
         <div class="card-body">
           <div class="row justify-content-center mt-4">
             <div class="col-10">
-              <h1>Login</h1>
-              <p class="text-muted">Login with one of following options.</p>
+              <h1>Register</h1>
+              <p class="text-muted">Just a few more steps before it gets better.</p>
             </div>
           </div>
 
           <div class="row justify-content-center mt-4">
-            <div class="col-10 text-center">
-              <button class="btn btn-addons mb-3">
-                <i class="bi bi-github h5"></i>
-                Login with GitHub
-              </button>
-              <button class="btn btn-addons mb-3">
-                <i class="bi bi-google h5"></i>
-                Login with google
-              </button>
-
-              <p class="text-muted or-line">
-                or
-              </p>
-            </div>
-          </div>
-
-          <div class="row justify-content-center">
             <div class="col-10">
 
               <form action="/login" method="POST" autocomplete="off">
@@ -41,21 +24,21 @@
                   <label for="password" class="form-label">Password</label>
                   <input type="password" name="password" class="form-control" id="password" />
                 </div>
-
-                <div class="text-end mb-4">
-                  <p style="color: #5138ee;">Forget Password?</p>
+                <div class="mb-4">
+                  <label for="confirmPassword" class="form-label">Confirm Password</label>
+                  <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" />
                 </div>
 
                 <div class="text-center mb-4">
                   <button class="btn btn-cprimary">
-                    <i class="bi bi-box-arrow-in-left h5"></i>
-                    Login
+                    <i class="bi bi-box-arrow-in-right h5"></i>
+                    Register
                   </button>
                 </div>
 
                 <div class="text-center mb-4">
-                  <p style="color: #5138ee;">Not registered? <a href="/register" class="text-decoration-none"
-                      style="color: #7964ff;">Register now</a>.</p>
+                  <p style="color: #5138ee;">Already have an account? <a href="/login" class="text-decoration-none"
+                      style="color: #7964ff;">Login now</a>.</p>
                 </div>
               </form>
             </div>
