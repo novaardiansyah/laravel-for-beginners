@@ -9,6 +9,13 @@
             <div class="col-10">
               <h1>Login</h1>
               <p class="text-muted">Login with one of following options.</p>
+
+              @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show mt-3 mb-0" role="alert">
+                  {{ session('success') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              @endif
             </div>
           </div>
 
