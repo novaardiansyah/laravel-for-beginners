@@ -17,6 +17,10 @@
     opacity: 0.7;
 }
 
+.or-line {
+    position: relative;
+}
+
 .or-line::before,
 .or-line::after {
     content: "";
