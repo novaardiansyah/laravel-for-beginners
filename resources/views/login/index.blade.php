@@ -45,8 +45,9 @@
                 @csrf
                 <div class="mb-4">
                   <label for="email" class="form-label">Email address</label>
-                  <input type="email" name="email" class="form-control  py-2 px-3 @error('email') is-invalid @enderror"
-                    id="email" placeholder="email@example.com" required value="{{ old('email') }}" />
+                  <input type="email" name="email" id="email"
+                    class="form-control py-2 px-3 @error('email') is-invalid @enderror" value="{{ old('email') }}"
+                    placeholder="email@example.com" required />
                   @error('email')
                     <div class="invalid-feedback pt-2">
                       {{ $message }}
@@ -55,9 +56,9 @@
                 </div>
                 <div class="mb-4">
                   <label for="password" class="form-label">Password</label>
-                  <input type="password" name="password"
-                    class="form-control py-2 px-3 @error('password') is-invalid @enderror" id="password"
-                    placeholder="your password" required />
+                  <input type="password" name="password" id="password"
+                    class="form-control py-2 px-3 @error('password') is-invalid @enderror" placeholder="your password"
+                    required />
                   @error('password')
                     <div class="invalid-feedback pt-2">
                       {{ $message }}
@@ -70,17 +71,17 @@
                 </div>
 
                 <div class="text-center mb-4">
-                  <button class="btn btn-cprimary">
+                  <button type="submit" class="btn btn-cprimary">
                     <i class="bi bi-box-arrow-in-left h5"></i>
                     Login
                   </button>
                 </div>
-
-                <div class="text-center mb-4">
-                  <p style="color: #5138ee;">Not registered? <a href="/register" class="text-decoration-none"
-                      style="color: #7964ff;">Register now</a>.</p>
-                </div>
               </form>
+
+              <div class="text-center mb-4">
+                <p style="color: #5138ee;">Not registered? <a href="/register" class="text-decoration-none"
+                    style="color: #7964ff;">Register now</a>.</p>
+              </div>
             </div>
           </div>
 
