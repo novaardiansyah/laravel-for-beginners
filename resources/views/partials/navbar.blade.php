@@ -28,15 +28,19 @@
             <li>
               <form action="/logout" method="POST" autocomplete="off">
                 @csrf
-                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+                <button type="submit" class="dropdown-item">
+                  Logout <i class="bi bi-box-arrow-right"></i>
+                </button>
               </form>
             </li>
           </ul>
         </div>
       @else
         <div class="navbar-nav ms-auto">
-          <a class="nav-link {{ $active === 'Login' ? 'active' : '' }}" href="/login"><i
-              class="bi bi-box-arrow-left"></i> Login</a>
+          <a class="nav-link {{ $active === 'Login' ? 'active' : '' }}" href="/login">
+            <i class="bi bi-box-arrow-left"></i>
+            Login
+          </a>
         </div>
       @endauth
     </div>

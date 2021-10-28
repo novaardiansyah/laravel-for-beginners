@@ -21,7 +21,7 @@
             </div>
           </div>
 
-          <div class="row justify-content-center mt-4">
+          {{-- <div class="row justify-content-center mt-4">
             <div class="col-10 text-center">
               <button class="btn btn-addons py-2 mb-3">
                 <i class="bi bi-github h5"></i>
@@ -36,9 +36,9 @@
                 or
               </p>
             </div>
-          </div>
+          </div> --}}
 
-          <div class="row justify-content-center">
+          <div class="row justify-content-center mt-3">
             <div class="col-10">
 
               <form action="/login" method="POST" autocomplete="off">

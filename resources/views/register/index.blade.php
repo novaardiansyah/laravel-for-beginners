@@ -12,7 +12,7 @@
             </div>
           </div>
 
-          <div class="row justify-content-center mt-4">
+          <div class="row justify-content-center mt-3">
             <div class="col-10">
 
               <form action="/register" method="POST" autocomplete="off">
@@ -62,8 +62,8 @@
 
                 <div class="text-center mb-4">
                   <button type="submit" class="btn btn-cprimary">
-                    <i class="bi bi-box-arrow-in-right h5"></i>
                     Register
+                    <i class="bi bi-pencil-square h5"></i>
                   </button>
                 </div>
 
