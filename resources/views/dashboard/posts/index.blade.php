@@ -8,6 +8,7 @@
   <div class="row">
     <div class="col-md-8 col-lg-10">
       <div class="table-responsive">
+        <a href="/dashboard/posts/create" class="btn btn-primary mb-3">create new post</a>
         <table class="table table-dark table-hover table-borderless table-striped">
           <thead class="text-center">
             <tr>
