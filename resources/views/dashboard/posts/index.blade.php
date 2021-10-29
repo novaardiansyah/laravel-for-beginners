@@ -24,7 +24,7 @@
                 <td class="text-start">{{ Str::substr($post->title, 0, 70) . '...' }}</td>
                 <td class="text-center">{{ $post->category->name }}</td>
                 <td class="text-nowrap">
-                  <a href="/dashboard/posts/{{ $post->id }}" class="badge bg-info">
+                  <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info">
                     <span data-feather="eye"></span>
                   </a>
                   <a href="" class="badge bg-warning">

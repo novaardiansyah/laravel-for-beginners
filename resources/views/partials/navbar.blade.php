@@ -38,7 +38,7 @@
       @else
         <div class="navbar-nav ms-auto">
           <a class="nav-link {{ $active === 'Login' ? 'active' : '' }}" href="/login">
-            <i class="bi bi-box-arrow-left"></i>
+            <i class="bi bi-box-arrow-in-left"></i>
             Login
           </a>
         </div>

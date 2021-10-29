@@ -41,4 +41,10 @@ class Post extends Model
       });
     });
   }
+
+  //  ! Overrides the search default value
+  public function getRouteKeyName()
+  {
+    return 'slug';
+  }
 }
