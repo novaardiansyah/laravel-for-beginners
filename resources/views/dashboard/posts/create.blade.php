@@ -12,28 +12,54 @@
           <form action="/dashboard/posts" method="POST" autocomplete="off">
             @csrf
             <div class="mb-4">
-              <label for="title" class="form-label">Title</label>
-              <input type="text" class="form-control" id="title" name="title"
-                placeholder="do you have any good ideas today?" />
+              <label for="title" class="form-label">Title <span class="text-danger h6">*</span></label>
+              <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
+                placeholder="do you have any good ideas today?" value="{{ old('title') }}" required />
+              @error('title')
+                <div class="invalid-feedback pt-2 h6">
+                  {{ $message }}
+                </div>
+              @enderror
             </div>
 
             <div class="mb-4">
-              <label for="slug" class="form-label">Slug</label>
-              <input type="text" class="form-control" id="slug" name="slug" placeholder="have-any-good-idea?" />
+              <label for="slug" class="form-label">Slug <span class="text-danger h6">*</span></label>
+              <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
+                placeholder="have-any-good-idea?" value="{{ old('slug') }}" required />
+              @error('slug')
+                <div class="invalid-feedback pt-2 h6">
+                  {{ $message }}
+                </div>
+              @enderror
             </div>
 
             <div class="mb-4">
-              <label for="category_id" class="form-label">Category</label>
-              <select class="form-select" id="category_id" name="category_id">
+              <label for="category_id" class="form-label">Category <span class="text-danger h6">*</span></label>
+              <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id"
+                required>
                 @foreach ($categories as $category)
-                  <option value="{{ $category->id }}">{{ $category->name }}</option>
+                  @if (old('category_id') == $category->id)
+                    <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                  @else
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                  @endif
                 @endforeach
               </select>
+              @error('category_id')
+                <div class="invalid-feedback pt-2 h6">
+                  {{ $message }}
+                </div>
+              @enderror
             </div>
 
             <div class="mb-4">
-              <label for="body" class="form-label">Body</label>
-              <input id="body" type="hidden" name="body">
+              <label for="body" class="form-label">Body <span class="text-danger h6">*</span></label>
+              @error('body')
+                <p class="text-danger" style="font-weight: 500;">
+                  <small>{{ $message }}</small>
+                </p>
+              @enderror
+              <input id="body" type="hidden" name="body" value="{{ old('body') }}">
               <trix-editor input="body"></trix-editor>
             </div>
 

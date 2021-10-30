@@ -9,6 +9,17 @@
     <div class="col-md-8 col-lg-10">
       <div class="table-responsive">
         <a href="/dashboard/posts/create" class="btn btn-primary mb-3">create new post</a>
+
+        @if (session()->has('success') || session()->has('error'))
+          <div
+            class="alert {{ session()->has('success') ? 'alert-success' : 'alert-danger' }} alert-dismissible fade show mb-3 mb-0"
+            role="alert">
+            <span class="fs-6">{{ session()->has('success') ? session('success') : session('error') }}</span>
+
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
+
         <table class="table table-dark table-hover table-borderless table-striped">
           <thead class="text-center">
             <tr>

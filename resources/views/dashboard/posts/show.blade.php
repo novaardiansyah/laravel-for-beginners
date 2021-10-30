@@ -34,7 +34,7 @@
           {!! $post->body !!}
         </article>
 
-        <a href="/posts" class="text-decoration-none d-block mt-3">back to posts</a>
+        <a href="/dashboard/posts" class="text-decoration-none d-block mt-3">back to posts</a>
       </article>
     </div>
   </div>
