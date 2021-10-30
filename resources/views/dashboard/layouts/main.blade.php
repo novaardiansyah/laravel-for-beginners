@@ -14,6 +14,18 @@
   <!-- Custom styles for this template -->
   <link href="/css/dashboard.css" rel="stylesheet" />
 
+  {{-- Trix Editor --}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/basecamp/trix@1.3.1/dist/trix.css">
+  <script src="https://cdn.jsdelivr.net/gh/basecamp/trix@1.3.1/dist/trix.js"></script>
+
+  <style>
+    /* Trix Editor */
+    trix-toolbar [data-trix-button-group="file-tools"] {
+      display: none;
+    }
+
+  </style>
+
   <title>Nova Blog | {{ $title }}</title>
 </head>
 
@@ -38,6 +50,13 @@
     integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 
   <script src="/js/dashboard.js"></script>
+
+  <script>
+    // ! Trix Editor
+    document.addEventListener('trix-file-accept', function(e) {
+      e.preventDefault();
+    });
+  </script>
 </body>
 
 </html>
