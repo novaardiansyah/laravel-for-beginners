@@ -19,12 +19,16 @@
         </span>
       </a>
 
-      <a href="" class="btn btn-danger mb-1">
-        <span class="d-flex">
-          <span data-feather="x-circle" class="align-self-center"></span>
-          &nbsp;Delete
-        </span>
-      </a>
+      <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline mb-1">
+        @method('delete')
+        @csrf
+        <button class="btn btn-danger" onclick="return confirm('Are you sure?')">
+          <span class="d-flex">
+            <span data-feather="x-circle" class="align-self-center"></span>
+            &nbsp;Delete
+          </span>
+        </button>
+      </form>
 
       <img src="https://source.unsplash.com/1080x480?{{ $post->category->name }}" class="img-fluid mt-3"
         alt="{{ $post->category->name }}" />
