@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-  <div class="row justify-content-center">
+  <div class="row">
     <div class="col-lg-8">
       <h4 class="text-capitalize mb-3">Post Categories:</h4>
     </div>
