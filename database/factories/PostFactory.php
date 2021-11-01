@@ -24,10 +24,10 @@ class PostFactory extends Factory
     return [
       "category_id" => mt_rand(1, 3),
       "user_id"     => mt_rand(1, 5),
-      "title"       => $this->faker->sentence(mt_rand(10, 20)),
+      "title"       => $this->faker->sentence(mt_rand(5, 10)),
       "slug"        => $this->faker->slug(),
-      "excerpt"     => $this->faker->sentence(mt_rand(50, 100)),
-      "body"        => collect($this->faker->paragraphs(mt_rand(20, 40)))->map(fn ($p) => "<p>$p</p>")->implode('')
+      "excerpt"     => $this->faker->sentence(mt_rand(50, 75)),
+      "body"        => collect($this->faker->paragraphs(mt_rand(15, 30)))->map(fn ($p) => "<p>$p</p>")->implode('')
     ];
   }
 }
