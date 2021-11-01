@@ -12,7 +12,7 @@
         </span>
       </a>
 
-      <a href="" class="btn btn-warning mb-1">
+      <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning mb-1">
         <span class="d-flex">
           <span data-feather="edit" class="align-self-center"></span>
           &nbsp;Edit
