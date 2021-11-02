@@ -30,8 +30,15 @@
         </button>
       </form>
 
-      <img src="https://source.unsplash.com/1080x480?{{ $post->category->name }}" class="img-fluid mt-3"
-        alt="{{ $post->category->name }}" />
+      <div class="post-images">
+        @if ($post->image)
+          <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid mt-3"
+            alt="{{ asset('storage/' . $post->image) }}" />
+        @else
+          <img src="https://source.unsplash.com/1080x480?{{ $post->category->name }}" class="img-fluid mt-3"
+            alt="{{ $post->category->name }}" />
+        @endif
+      </div>
 
       <article class="my-3">
         {!! $post->body !!}

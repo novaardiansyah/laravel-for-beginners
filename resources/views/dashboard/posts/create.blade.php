@@ -9,7 +9,7 @@
     <div class="col-md-8">
       <div class="card shadow-md py-2">
         <div class="card-body">
-          <form action="/dashboard/posts" method="POST" autocomplete="off">
+          <form action="/dashboard/posts" method="POST" enctype="multipart/form-data" autocomplete="off">
             @csrf
             <div class="mb-4">
               <label for="title" class="form-label">Title <span class="text-danger h6">*</span></label>
@@ -46,6 +46,16 @@
                 @endforeach
               </select>
               @error('category_id')
+                <div class="invalid-feedback pt-2 h6">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+
+            <div class="mb-4">
+              <label for="image" class="form-label">Post Image</label>
+              <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" />
+              @error('image')
                 <div class="invalid-feedback pt-2 h6">
                   {{ $message }}
                 </div>

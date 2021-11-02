@@ -25,8 +25,16 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 mb-3">
         <div class="card mb-3">
-          <img src="https://source.unsplash.com/1080x480?{{ $posts[0]->category->name }}" class="card-img-top"
-            alt="{{ $posts[0]->category->name }}">
+          @if ($posts[0]->image)
+            <div style="max-height: 480px; overflow: hidden;">
+              <img src="{{ asset('storage/' . $posts[0]->image) }}" class="card-img-top"
+                alt="{{ asset('storage/' . $posts[0]->image) }}" />
+            </div>
+          @else
+            <img src="https://source.unsplash.com/1080x480?{{ $posts[0]->category->name }}" class="card-img-top"
+              alt="{{ $post->category->name }}" />
+          @endif
+
           <div class="card-body text-center">
             <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">
                 {{ Str::substr($posts[0]->title, 0, 35) . '...' }}
@@ -39,7 +47,7 @@
                 class="text-decoration-none">{{ $posts[0]->category->name }}</a> <span
                 class="text-lowercase">{{ $posts[0]->created_at->diffForHumans() }}</span></small>
 
-            <p class="card-text">{{ Str::substr($posts[0]->excerpt, 0, 250) . '...' }}</p>
+            <p class="card-text">{{ Str::substr($posts[0]->excerpt, 0, 200) . '...' }}</p>
 
             <a href="/posts/{{ $posts[0]->slug }}" class="btn btn-primary text-decoration-none">
               Read More
@@ -48,6 +56,7 @@
         </div>
       </div>
     </div>
+
     <div class="row">
       @foreach ($posts->skip(1) as $post)
         <div class="col-md-4 mb-3">
@@ -57,9 +66,15 @@
                 class="text-white text-decoration-none">{{ $post->category->name }}</a>
             </div>
 
-            <img src="https://source.unsplash.com/500x300?{{ $post->category->name }}" class="card-img-top"
-              alt="{{ $post->category->name }}" />
-
+            @if ($post->image)
+              <div style="max-height: 480px; overflow: hidden;">
+                <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top"
+                  alt="{{ asset('storage/' . $post->image) }}" />
+              </div>
+            @else
+              <img src="https://source.unsplash.com/500x300?{{ $post->category->name }}" class="card-img-top"
+                alt="{{ $post->category->name }}" />
+            @endif
             <div class="card-body">
               <h5 class="card-title"><a href="/posts/{{ $post->slug }}" class="text-decoration-none">
                   {{ Str::substr($post->title, 0, 35) . '...' }}
@@ -70,7 +85,7 @@
                   class="text-decoration-none">{{ $posts[0]->user->name }}</a> <span
                   class="text-lowercase">{{ $posts[0]->created_at->diffForHumans() }}</span></small>
 
-              <p class="card-text">{{ Str::substr($post->excerpt, 0, 150) . '...' }}</p>
+              <p class="card-text">{{ Str::substr($post->excerpt, 0, 200) . '...' }}</p>
 
               <a href="/posts/{{ $post->slug }}" class="btn btn-primary text-decoration-none">Read More</a>
             </div>
