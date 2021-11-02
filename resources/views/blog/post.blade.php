@@ -11,8 +11,10 @@
             class="text-decoration-none">{{ $post->category->name }}</a></small>
 
         @if ($post->image)
-          <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid"
-            alt="{{ asset('storage/' . $post->image) }}" />
+          <div style="max-height: 380px; overflow: hidden;">
+            <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid"
+              alt="{{ asset('storage/' . $post->image) }}" />
+          </div>
         @else
           <img src="https://source.unsplash.com/1080x480?{{ $post->category->name }}" class="img-fluid"
             alt="{{ $post->category->name }}" />

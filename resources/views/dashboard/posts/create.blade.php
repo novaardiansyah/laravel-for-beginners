@@ -54,7 +54,9 @@
 
             <div class="mb-4">
               <label for="image" class="form-label">Post Image</label>
-              <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" />
+              <img src="" alt="" class="img-fluid img-preview mb-3 col-6" />
+              <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
+                onchange="previewImage()" />
               @error('image')
                 <div class="invalid-feedback pt-2 h6">
                   {{ $message }}
@@ -79,15 +81,4 @@
       </div>
     </div>
   </div>
-
-  <script>
-    const title = document.querySelector('#title');
-    const slug = document.querySelector('#slug');
-
-    title.addEventListener('keyup', function() {
-      fetch('/dashboard/posts/createSlug?title=' + title.value)
-        .then(response => response.json())
-        .then(data => slug.value = data.slug)
-    });
-  </script>
 @endsection

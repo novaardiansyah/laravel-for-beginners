@@ -9,7 +9,8 @@
     <div class="col-md-8">
       <div class="card shadow-md py-2">
         <div class="card-body">
-          <form action="/dashboard/posts/{{ $post->slug }}" method="POST" autocomplete="off">
+          <form action="/dashboard/posts/{{ $post->slug }}" enctype="multipart/form-data" method="POST"
+            autocomplete="off">
             @method('PATCH')
             @csrf
             <div class="mb-4">
@@ -54,6 +55,26 @@
             </div>
 
             <div class="mb-4">
+              <label for="image" class="form-label">Post Image</label>
+
+              <input type="hidden" name="oldImage" value="{{ $post->image }}" />
+
+              @if ($post->image)
+                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ asset('storage/' . $post->image) }}"
+                  class="img-fluid img-preview mb-3 col-6 d-block" />
+              @else
+                <img src="" alt="" class="img-fluid img-preview mb-3 col-6" />
+              @endif
+              <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
+                onchange="previewImage()" />
+              @error('image')
+                <div class="invalid-feedback pt-2 h6">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+
+            <div class="mb-4">
               <label for="body" class="form-label">Body <span class="text-danger h6">*</span></label>
               @error('body')
                 <p class="text-danger" style="font-weight: 500;">
@@ -70,15 +91,4 @@
       </div>
     </div>
   </div>
-
-  <script>
-    const title = document.querySelector('#title');
-    const slug = document.querySelector('#slug');
-
-    title.addEventListener('keyup', function() {
-      fetch('/dashboard/posts/createSlug?title=' + title.value)
-        .then(response => response.json())
-        .then(data => slug.value = data.slug)
-    });
-  </script>
 @endsection
