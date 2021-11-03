@@ -16,7 +16,7 @@ class IsAdmin
    */
   public function handle(Request $request, Closure $next)
   {
-    if (auth()->guest() || auth()->user()->username !== 'novaardiansyah') {
+    if (auth()->guest() || auth()->user()->is_admin == 0) {
       // ! 403 Forbidden
       abort(403);
     }
