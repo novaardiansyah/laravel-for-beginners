@@ -10,9 +10,15 @@
             href="/posts?category={{ $post->category->slug }}"
             class="text-decoration-none">{{ $post->category->name }}</a></small>
 
-        <img src="https://source.unsplash.com/1080x480?{{ $post->category->name }}" class="img-fluid"
-          alt="{{ $post->category->name }}" />
-
+        @if ($post->image)
+          <div style="max-height: 380px; overflow: hidden;">
+            <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid"
+              alt="{{ asset('storage/' . $post->image) }}" />
+          </div>
+        @else
+          <img src="https://source.unsplash.com/1080x480?{{ $post->category->name }}" class="img-fluid"
+            alt="{{ $post->category->name }}" />
+        @endif
         <article class="my-3">
           {!! $post->body !!}
         </article>

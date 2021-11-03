@@ -9,7 +9,7 @@
     <div class="col-md-8">
       <div class="card shadow-md py-2">
         <div class="card-body">
-          <form action="/dashboard/posts" method="POST" autocomplete="off">
+          <form action="/dashboard/posts" method="POST" enctype="multipart/form-data" autocomplete="off">
             @csrf
             <div class="mb-4">
               <label for="title" class="form-label">Title <span class="text-danger h6">*</span></label>
@@ -53,6 +53,18 @@
             </div>
 
             <div class="mb-4">
+              <label for="image" class="form-label">Post Image</label>
+              <img src="" alt="" class="img-fluid img-preview mb-3 col-6" />
+              <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
+                onchange="previewImage()" />
+              @error('image')
+                <div class="invalid-feedback pt-2 h6">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+
+            <div class="mb-4">
               <label for="body" class="form-label">Body <span class="text-danger h6">*</span></label>
               @error('body')
                 <p class="text-danger" style="font-weight: 500;">
@@ -69,15 +81,4 @@
       </div>
     </div>
   </div>
-
-  <script>
-    const title = document.querySelector('#title');
-    const slug = document.querySelector('#slug');
-
-    title.addEventListener('keyup', function() {
-      fetch('/dashboard/posts/createSlug?title=' + title.value)
-        .then(response => response.json())
-        .then(data => slug.value = data.slug)
-    });
-  </script>
 @endsection
