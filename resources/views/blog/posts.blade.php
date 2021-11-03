@@ -32,7 +32,7 @@
             </div>
           @else
             <img src="https://source.unsplash.com/1080x480?{{ $posts[0]->category->name }}" class="card-img-top"
-              alt="{{ $post->category->name }}" />
+              alt="{{ $posts[0]->category->name }}" />
           @endif
 
           <div class="card-body text-center">
@@ -100,4 +100,8 @@
       </div>
     </div>
   @endif
+
+  <div class="d-flex justify-content-end">
+    {{ $posts->links() }}
+  </div>
 @endsection
