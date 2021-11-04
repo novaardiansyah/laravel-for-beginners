@@ -74,15 +74,17 @@
       }
     }
 
-    // Generate Slug
-    const title = document.querySelector('#title');
-    const slug = document.querySelector('#slug');
+    // ! Generate Slug
+    const slugKeyword = document.querySelector('.slug-keyword');
+    const generateSlug = document.querySelector('.generate-slug');
 
-    if (title) {
-      title.addEventListener('keyup', function() {
-        fetch('/dashboard/posts/createSlug?title=' + title.value)
+    if (slugKeyword !== null && generateSlug !== null) {
+      slugKeyword.addEventListener('keyup', function() {
+        fetch('/dashboard/createSlug?slugKeyword=' + slugKeyword.value)
           .then(response => response.json())
-          .then(data => slug.value = data.slug)
+          .then(data => {
+            generateSlug.value = data.slug;
+          });
       });
     }
   </script>

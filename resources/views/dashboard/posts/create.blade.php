@@ -13,8 +13,8 @@
             @csrf
             <div class="mb-4">
               <label for="title" class="form-label">Title <span class="text-danger h6">*</span></label>
-              <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                placeholder="do you have any good ideas today?" value="{{ old('title') }}" required />
+              <input type="text" class="form-control slug-keyword @error('title') is-invalid @enderror" id="title"
+                name="title" placeholder="do you have any good ideas today?" value="{{ old('title') }}" required />
               @error('title')
                 <div class="invalid-feedback pt-2 h6">
                   {{ $message }}
@@ -24,8 +24,8 @@
 
             <div class="mb-4">
               <label for="slug" class="form-label">Slug <span class="text-danger h6">*</span></label>
-              <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                placeholder="have-any-good-idea?" value="{{ old('slug') }}" required />
+              <input type="text" class="form-control generate-slug @error('slug') is-invalid @enderror" id="slug"
+                name="slug" placeholder="have-any-good-idea?" value="{{ old('slug') }}" required />
               @error('slug')
                 <div class="invalid-feedback pt-2 h6">
                   {{ $message }}

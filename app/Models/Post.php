@@ -49,6 +49,11 @@ class Post extends Model
     return 'slug';
   }
 
+  /**
+   * Return the sluggable configuration array for this model.
+   *
+   * @return array
+   */
   public function sluggable(): array
   {
     return [
