@@ -14,4 +14,10 @@ class Category extends Model
   {
     return $this->hasMany(Post::class);
   }
+
+  //  ! Overrides the search default value
+  public function getRouteKeyName()
+  {
+    return 'slug';
+  }
 }

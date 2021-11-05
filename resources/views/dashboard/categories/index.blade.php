@@ -32,11 +32,11 @@
             @foreach ($categories as $category)
               <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
-                <td class="text-center">{{ $category->name }}</td>
+                <td class="text-center text-capitalize">{{ $category->name }}</td>
                 <td class="text-nowrap text-center">
-                  <a href="/dashboard/categories/{{ $category->slug }}" class="badge bg-info">
+                  {{-- <a href="/dashboard/categories/{{ $category->slug }}" class="badge bg-info">
                     <span data-feather="eye"></span>
-                  </a>
+                  </a> --}}
                   <a href="/dashboard/categories/{{ $category->slug }}/edit" class="badge bg-warning">
                     <span data-feather="edit"></span>
                   </a>
