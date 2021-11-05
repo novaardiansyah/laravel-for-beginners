@@ -1,12 +1,27 @@
 @extends('layouts.main')
 
 @section('container')
-  <div class="row">
-    <div class="col-lg-8">
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo aliquid totam atque repudiandae ullam sapiente
-        mollitia quis neque tempore recusandae ab reprehenderit consequuntur molestiae officia aut, modi suscipit. Soluta
-        eveniet ea sunt minus exercitationem, obcaecati laudantium nobis, explicabo cum veniam amet asperiores rem unde.
-        Repellat quas ut molestias deserunt sequi!</p>
+  <div class="row justify-content-center mb-4">
+    <div class="col-lg-10">
+      <h2 class="text-primary mb-0">{{ $post->title }}</h2>
+      <small class="d-block mb-3 text-capitalize">By. <a href="/posts?authors={{ $post->user->username }}"
+          class="text-decoration-none">{{ $post->user->name }}</a> in <a
+          href="/posts?category={{ $post->category->slug }}"
+          class="text-decoration-none">{{ $post->category->name }}</a></small>
+
+      @if ($post->image)
+        <div style="max-height: 380px; overflow: hidden;">
+          <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid"
+            alt="{{ asset('storage/' . $post->image) }}" />
+        </div>
+      @else
+        <img src="https://source.unsplash.com/1080x480?{{ $post->category->name }}" class="img-fluid"
+          alt="{{ $post->category->name }}" />
+      @endif
+
+      <article class="my-3">
+        {!! $post->body !!}
+      </article>
     </div>
   </div>
 @endsection
