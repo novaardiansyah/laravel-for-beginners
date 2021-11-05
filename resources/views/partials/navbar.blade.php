@@ -36,10 +36,17 @@
         </div>
       @else
         <div class="navbar-nav ms-auto">
-          <a class="nav-link {{ $active === 'Login' ? 'active' : '' }}" href="/login">
-            <i class="bi bi-box-arrow-in-left"></i>
-            Login
-          </a>
+          @if (Request::is('login'))
+            <a class="nav-link {{ Request::is('login') ? 'active' : '' }}" href="/login">
+              <i class="bi bi-box-arrow-in-left"></i>
+              Login
+            </a>
+          @else
+            <a class="nav-link {{ Request::is('register') ? 'active' : '' }}" href="/register">
+              <i class="bi bi-pencil-square"></i>
+              Register
+            </a>
+          @endif
         </div>
       @endauth
     </div>
